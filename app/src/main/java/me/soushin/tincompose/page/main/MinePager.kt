@@ -7,6 +7,7 @@ import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import me.soushin.tincompose.app.go
 import me.soushin.tincompose.page.complex.ComplexAct
 
@@ -14,7 +15,12 @@ import me.soushin.tincompose.page.complex.ComplexAct
 @Composable
 fun MinePager(activity: MainActivity){
 
-    Column(modifier = Modifier.fillMaxWidth().height(IntrinsicSize.Max)) {
+    Column(modifier = Modifier
+        .fillMaxWidth()
+        .height(IntrinsicSize.Max)
+        .background(color = Color.Red)) {
+
+        Text(text = "测试测试测试测试")
 
     }
 

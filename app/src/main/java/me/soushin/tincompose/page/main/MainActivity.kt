@@ -8,6 +8,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
@@ -52,8 +53,11 @@ fun Greeting() {
             println("计算padding:${p.calculateTopPadding()},${IntrinsicSize.Max}")
             HorizontalPager(
                 state = pageState,
-                dragEnabled = false,
-                modifier = Modifier.fillMaxWidth().fillMaxHeight().padding(bottom = 60.dp)) { page ->
+//                dragEnabled = false,
+                modifier = Modifier.fillMaxWidth().fillMaxHeight().padding(bottom = 60.dp),
+                verticalAlignment = Alignment.Top,
+                horizontalAlignment = Alignment.Start,
+            ) { page ->
                 when(page){
                     0-> HomePager(LocalContext.current as MainActivity)
                     1-> MinePager(LocalContext.current as MainActivity)
