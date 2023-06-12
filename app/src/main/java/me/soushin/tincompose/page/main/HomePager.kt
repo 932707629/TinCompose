@@ -17,6 +17,7 @@ import com.google.accompanist.flowlayout.FlowColumn
 import com.google.accompanist.flowlayout.FlowRow
 import me.soushin.tincompose.app.go
 import me.soushin.tincompose.page.complex.ComplexAct
+import me.soushin.tincompose.page.simple.SimpleAct
 import org.intellij.lang.annotations.JdkConstants
 import java.util.concurrent.Flow
 
@@ -24,10 +25,13 @@ import java.util.concurrent.Flow
 @Composable
 fun HomePager(activity: MainActivity){
 
-    FlowColumn(modifier = Modifier
-        .fillMaxWidth()
-        .background(color = Color.Green),
+    println("每次都会走这里吗，，HomePager")
+    FlowRow(modifier = Modifier.fillMaxWidth().padding(horizontal = 15.dp),
+        mainAxisSpacing = 10.dp
     ) {
+        Button(onClick = { activity.go(SimpleAct::class.java) }) {
+            Text(text = "基础控件")
+        }
         Button(onClick = { activity.go(ComplexAct::class.java) }) {
             Text(text = "复杂")
         }

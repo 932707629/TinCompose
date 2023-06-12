@@ -14,14 +14,9 @@ import me.soushin.tincompose.page.complex.ComplexAct
 
 @Composable
 fun MinePager(activity: MainActivity){
+    println("每次都会走这里吗，，MinePager")
 
-    Column(modifier = Modifier
-        .fillMaxWidth()
-        .height(IntrinsicSize.Max)
-        .background(color = Color.Red)) {
-
-        Text(text = "测试测试测试测试")
-
-    }
+    Column(modifier = Modifier.fillMaxWidth().height(IntrinsicSize.Max)
+        .background(color = Color.Red)) { Text(text = "测试测试测试测试") }
 
 }

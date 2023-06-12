@@ -1,5 +1,6 @@
 package me.soushin.tincompose.page.main
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
@@ -8,6 +9,9 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -23,7 +27,9 @@ import kotlinx.coroutines.launch
 import me.soushin.tincompose.R
 import me.soushin.tincompose.app.DataBindingActivity
 import me.soushin.tincompose.app.mainScope
+import me.soushin.tincompose.app.utils.ScopeUtils
 import me.soushin.tincompose.ui.theme.MyApplicationTheme
+import kotlin.reflect.jvm.internal.impl.util.collectionUtils.ScopeUtilsKt
 
 
 class MainActivity : DataBindingActivity<MainVM>() {
@@ -46,11 +52,14 @@ class MainActivity : DataBindingActivity<MainVM>() {
 @OptIn(ExperimentalPagerApi::class)
 @Composable
 fun Greeting() {
-
     val pageState = PagerState(pageCount = 2, currentPage = 0)
     Scaffold(
+        topBar = {
+            ScopeUtils.buildTopBar(title = remember { mutableStateOf("首页的这个页面，看结果吧") }, hasStatus = true, isBack = false)
+        },
         content = {p->
-            println("计算padding:${p.calculateTopPadding()},${IntrinsicSize.Max}")
+            println("计算padding:${p.calculateTopPadding()}")
+
             HorizontalPager(
                 state = pageState,
 //                dragEnabled = false,
@@ -95,9 +104,6 @@ fun Greeting() {
             }
         }
     )
-
-
-
 }
 
 @Preview(showBackground = true, showSystemUi = true, device = Devices.NEXUS_7)
