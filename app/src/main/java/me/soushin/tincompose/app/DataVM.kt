@@ -9,11 +9,12 @@ open class DataVM<R: DataRepository>(app: Application,val mRepository: R):Androi
 
     val scope by lazy { mainScope() }
 
-    val exceptionHandler by lazy { CoroutineExceptionHandler { coroutineContext, throwable ->  } }
+    val exceptionHandler by lazy { CoroutineExceptionHandler { coroutineContext, throwable ->
+        GlobalConfig.get().errorHandler.handleResponseError(app,throwable)
+    } }
 
     init {
         scope.launch(exceptionHandler) {
-
 
         }
     }

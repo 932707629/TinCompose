@@ -6,6 +6,7 @@ import androidx.activity.ComponentActivity
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.fragment.app.Fragment
+import com.hjq.toast.Toaster
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 
@@ -36,6 +37,11 @@ fun Any.mainScope():CoroutineScope{
 
 fun Any.ioScope():CoroutineScope{
     return CoroutineScope(Dispatchers.IO)
+}
+
+
+fun showToasty(msg:String?){
+    msg?.let { Toaster.show(msg) }
 }
 
 
