@@ -43,6 +43,7 @@ import coil.request.ImageRequest
 import com.google.accompanist.flowlayout.FlowRow
 import me.soushin.tincompose.R
 import me.soushin.tincompose.app.DataBindingActivity
+import me.soushin.tincompose.app.GlobalConfig
 import me.soushin.tincompose.app.utils.ScopeUtils
 import me.soushin.tincompose.ui.theme.MyApplicationTheme
 import okhttp3.OkHttpClient
@@ -138,12 +139,9 @@ fun Greeting() {
                         Image(painter = painterResource(id = R.drawable.ic_launcher_background), contentDescription = "图片下右圆角",
                             modifier = Modifier.clip(RoundedCornerShape(bottomEnd = 10.dp)))
 
-                        Icon(painter =  painterResource(id = R.drawable.ic_launcher_background), contentDescription = "全圆角+毛玻璃"
-                            , modifier = Modifier
-                                .width(80.dp)
-                                .height(80.dp)
-                                .clip(RoundedCornerShape(10.dp))
-                                .blur(5.dp))
+                        Image(painter =  painterResource(id = R.drawable.ic_launcher_background), contentDescription = "全圆角+毛玻璃"
+                            , modifier = Modifier.clip(RoundedCornerShape(10.dp)).width(80.dp)
+                                .height(80.dp).blur(5.dp))
 
                         ClickableText(text = AnnotatedString("这是可点击的文本控件"), onClick = { println("点击了可点击的") })
                         Text(text = "正常文本", fontSize = 25.sp)
@@ -173,11 +171,12 @@ fun Greeting() {
                         Switch(checked = true, onCheckedChange = {})
                         Checkbox(checked = true, onCheckedChange = {})
 
-                        AsyncImage(model = "http://wanandroid.com/blogimgs/af042353-c7c6-4f29-a988-3ad9b369964d.png",
+                        AsyncImage(
+                            model = "https://bkimg.cdn.bcebos.com/pic/3812b31bb051f8198618b5d9b5e55ded2e738bd4495c",
                             contentDescription = "网络图片",
                             onState = {
                                 if (it is AsyncImagePainter.State.Error){
-                                    it.result.throwable.printStackTrace()
+                                    GlobalConfig.get().errorHandler.handleResponseError(null,it.result.throwable)
                                 }else {
                                     println("状态变化：${it}")
                                 }

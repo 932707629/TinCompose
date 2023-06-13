@@ -16,6 +16,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.blankj.utilcode.util.ActivityUtils
 
+/**
+ * 区域组件工具类
+ * @author SouShin
+ * created at 2023/6/13 09:15
+ */
 object ScopeUtils {
 
     @Composable
