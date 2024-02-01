@@ -1,8 +1,7 @@
 pluginManagement {
     repositories {
-        maven {url 'https://developer.huawei.com/repo/'}
-        maven {url 'https://repo.huaweicloud.com/repository/maven/'}
         gradlePluginPortal()
+        maven { url "https://www.jitpack.io" }
         //阿里云仓库总览 https://developer.aliyun.com/mvn/guide
         maven { url 'https://maven.aliyun.com/repository/google' }
         maven { url 'https://maven.aliyun.com/repository/central' }
@@ -12,21 +11,16 @@ pluginManagement {
         maven { url 'https://maven.aliyun.com/repository/spring-plugin' }
         maven { url 'https://maven.aliyun.com/repository/grails-core' }
         maven { url 'https://maven.aliyun.com/repository/apache-snapshots' }
+        maven {url 'https://developer.huawei.com/repo/'}
+        maven {url 'https://repo.huaweicloud.com/repository/maven/'}
         google()
         mavenCentral()
-        maven { url 'https://s01.oss.sonatype.org/content/repositories/snapshots/' }
-        maven { url "https://www.jitpack.io" }
     }
 }
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
-        maven {url 'https://developer.huawei.com/repo/'}
-        maven {url 'https://repo.huaweicloud.com/repository/maven/'}
         maven { url "https://www.jitpack.io" }
-        google()
-        mavenCentral()
-        maven { url 'https://s01.oss.sonatype.org/content/repositories/snapshots/' }
         //阿里云仓库总览 https://developer.aliyun.com/mvn/guide
         maven { url 'https://maven.aliyun.com/repository/google' }
         maven { url 'https://maven.aliyun.com/repository/central' }
@@ -36,6 +30,10 @@ dependencyResolutionManagement {
         maven { url 'https://maven.aliyun.com/repository/spring-plugin' }
         maven { url 'https://maven.aliyun.com/repository/grails-core' }
         maven { url 'https://maven.aliyun.com/repository/apache-snapshots' }
+        maven {url 'https://developer.huawei.com/repo/'}
+        maven {url 'https://repo.huaweicloud.com/repository/maven/'}
+        google()
+        mavenCentral()
     }
 }
 rootProject.name = "TinCompose"

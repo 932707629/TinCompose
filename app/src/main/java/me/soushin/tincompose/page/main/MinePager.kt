@@ -6,10 +6,12 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Devices
+import androidx.compose.ui.tooling.preview.Preview
 
-
+@Preview(showBackground = true, showSystemUi = true, device = Devices.NEXUS_7)
 @Composable
-fun MinePager(activity: MainActivity){
+fun MinePager(){
     println("每次都会走这里吗，，MinePager")
 
     Column(modifier = Modifier.fillMaxWidth().height(IntrinsicSize.Max)

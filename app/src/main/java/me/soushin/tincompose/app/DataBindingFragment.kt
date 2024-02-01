@@ -15,10 +15,10 @@ import java.lang.reflect.ParameterizedType
 
 abstract class DataBindingFragment<T : DataVM<out DataRepository>>: Fragment() {
 
-    protected var vm:T? = null
+    public var vm:T? = null
 
     //通过ViewModelProvider可以获取同一个Activity下共享的ViewModel
-    protected var vmProvider: ViewModelProvider?=null
+    public var vmProvider: ViewModelProvider?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,11 +52,6 @@ abstract class DataBindingFragment<T : DataVM<out DataRepository>>: Fragment() {
     abstract fun initView(inflater: LayoutInflater,
                           container: ViewGroup?,
                           savedInstanceState: Bundle?)
-
-
-    open fun sharedViewModel():Boolean{
-        return true
-    }
 
 
 }

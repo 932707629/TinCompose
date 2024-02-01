@@ -14,7 +14,7 @@ abstract class DataBindingActivity<T : DataVM<out DataRepository>>: AppCompatAct
     var vm:T? = null
 
     //通过ViewModelProvider可以获取同一个Activity下共享的ViewModel
-    protected var vmProvider: ViewModelProvider?=null
+    public var vmProvider: ViewModelProvider?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,5 +41,6 @@ abstract class DataBindingActivity<T : DataVM<out DataRepository>>: AppCompatAct
     open fun useFragment():Boolean{
         return true
     }
+
 
 }

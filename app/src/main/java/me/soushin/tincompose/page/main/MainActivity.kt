@@ -55,7 +55,8 @@ fun Greeting() {
     val pageState = PagerState(pageCount = 2, currentPage = 0)
     Scaffold(
         topBar = {
-            ScopeUtils.buildTopBar(title = remember { mutableStateOf("首页的这个页面，看结果吧") }, hasStatus = true, isBack = false)
+            ScopeUtils.buildTopBar(title = remember { mutableStateOf("首页的这个页面，看结果吧") },
+                hasStatus = true, isBack = false)
         },
         content = {p->
             println("计算padding:${p.calculateTopPadding()}")
@@ -67,9 +68,9 @@ fun Greeting() {
                 verticalAlignment = Alignment.Top,
                 horizontalAlignment = Alignment.Start,
             ) { page ->
-                when(page){
-                    0-> HomePager(LocalContext.current as MainActivity)
-                    1-> MinePager(LocalContext.current as MainActivity)
+                when(page){//LocalContext.current as MainActivity
+                    0-> HomePager()
+                    1-> MinePager()
                 }
             }
         },

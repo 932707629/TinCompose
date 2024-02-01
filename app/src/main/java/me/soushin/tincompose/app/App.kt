@@ -19,11 +19,6 @@ class App : Application() {
 
         Toaster.init(this)
 
-
     }
-
-
-
-
 
 }
